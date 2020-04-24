@@ -1,10 +1,8 @@
 package com.weborders.utilities;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -117,7 +115,7 @@ public class BrowserUtilities {
      * to target window based on page title
      * @param title of the window to switch
      */
-    public static void scitchWindow(String title){
+    public static void switchWindow(String title){
         Set<String> windowHandles = com.weborders.utilities.Driver.getDriver().getWindowHandles();
         for(String window : windowHandles){
             com.weborders.utilities.Driver.getDriver().switchTo().window(window);
@@ -125,5 +123,9 @@ public class BrowserUtilities {
                 break;
             }
         }
+    }
+    public void clean(){
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.BACK_SPACE);
     }
 }

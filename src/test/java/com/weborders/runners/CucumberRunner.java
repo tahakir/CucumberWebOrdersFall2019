@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         glue = "com/weborders/step_definitions",
-        features = "src/test/resources",
+        features = "src/test/resources/features",
         dryRun = false,
         strict = false,
-        tags = "",
+        tags = "@add_order",
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber1.json"
